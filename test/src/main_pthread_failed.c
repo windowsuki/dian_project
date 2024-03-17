@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> //寄了
 #include "video_decoder.h"
 #include <stdlib.h>
 #include <unistd.h>

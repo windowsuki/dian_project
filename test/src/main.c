@@ -9,6 +9,16 @@
 extern char* optarg;
 int old_print[1000000];
 
+int optindex = 0;
+struct option longOpts[] = {
+    { "help", no_argument, NULL, 'h' },
+    { "version", no_argument, NULL, 'v' },
+    { "color", no_argument, NULL, 'c' },
+    { "resize", required_argument, 'r'},
+    { "file", required_argument, NULL, 'f' }
+};
+
+
 int kbhit(void)
 {
     struct termios oldt, newt;
@@ -155,7 +165,7 @@ int main(int argc, char* argv[]) {
     int opt = 0, stride = 10, rgbmode = 0, fastmode = 0, pausemode = 0;
     int ch = 0;
     char filename[] = "./source/bad_apple.mp4";
-    while (opt = getopt(argc, argv, "hvcr:") != -1) {
+    while (opt = getopt_long(argc, argv, "hvcr:f:",longOpts,&optindex) != -1) {
         switch (opt) {
         case 'h':
             printf("this is a help");

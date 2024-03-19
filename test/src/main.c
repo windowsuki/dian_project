@@ -200,8 +200,8 @@ int main(int argc, char* argv[]) {
             if (ch == 32)
                 pausemode = 1 - pausemode;
         }
-        if (fastmode)sleep(0.5);
-        else sleep(1);
+        if (fastmode)usleep(100);
+        else usleep(10000);
         if (!pausemode) {
             cut = decoder_get_frame();
             if (rgbmode) image_print_max(cut, stride);

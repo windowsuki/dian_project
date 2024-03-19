@@ -152,7 +152,7 @@ void image_print_max_gray(Frame cut,int s){
 }
 
 int main(int argc,char* argv[]){
-    int opt=0,stride=10,rgbmode=0,fastmode=0;
+    int opt=0,stride=10,rgbmode=0,fastmode=0,pausemode=0;
     int ch=0;
     char filename[]="./source/bad_apple.mp4";
     while(opt=getopt(argc,argv,"hvcr:")!=-1){
@@ -187,15 +187,17 @@ int main(int argc,char* argv[]){
             if(ch==100)
                 fastmode=1-fastmode;
             if(ch==32){
-                do{ch=getchar();}
-                while (ch!=32);
+                pausemode=1-pausemode;
             }
         }
         if (fastmode)sleep(0.5);
         else sleep(1);
+        if(!pausemode){
         cut=decoder_get_frame();
         if(rgbmode) image_print_max(cut,stride);
         else image_print_max_gray(cut,stride);
+        }
+        else i--;
     }
     return 0;
 }

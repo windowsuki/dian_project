@@ -14,7 +14,7 @@ struct option longOpts[] = {
     { "help", no_argument, NULL, 'h' },
     { "version", no_argument, NULL, 'v' },
     { "color", no_argument, NULL, 'c' },
-    { "resize", required_argument, 'r'},
+    { "resize", required_argument, NULL, 'r'},
     { "file", required_argument, NULL, 'f' }
 };
 

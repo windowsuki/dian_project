@@ -5,6 +5,7 @@
 #include <string.h>
 #include <termios.h>
 #include <fcntl.h>
+#include <getopt.h>
 
 extern char* optarg;
 int old_print[1000000];
